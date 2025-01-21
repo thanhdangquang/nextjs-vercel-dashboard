@@ -24,9 +24,6 @@ export default function Page() {
             </a>
             , brought to you by Vercel.
           </p> */}
-          <Button asChild>
-            <Link href="/dashboard">Dashboard</Link>
-          </Button>
 
           <Link
             href="/login"

@@ -51,7 +51,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split("T")[0];
 
-<<<<<<< HEAD
   // Insert data into the database
   try {
     await sql`
@@ -66,16 +65,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
   }
 
   // Revalidate the cache for the invoices page and redirect the user.
-=======
-  try {
-    await sql`
-    INSERT INTO invoices (customer_id, amount, status, date)
-    VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-  `;
-  } catch (error) {
-    return { message: "Database:failed to create invoice" };
-  }
->>>>>>> 424807e5bcbe39b4f1a9574af6840a23161d9e15
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
@@ -113,7 +102,6 @@ export async function deleteInvoice(id: string) {
       message: "Database: Failed to delete invoice",
     };
   }
-<<<<<<< HEAD
 }
 
 export async function authenticate(
@@ -133,6 +121,4 @@ export async function authenticate(
     }
     throw error;
   }
-=======
->>>>>>> 424807e5bcbe39b4f1a9574af6840a23161d9e15
 }
